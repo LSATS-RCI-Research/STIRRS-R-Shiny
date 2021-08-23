@@ -1,12 +1,15 @@
 # Rely on the 'WorldPhones' dataset in the datasets
 # package (which generally comes preloaded).
 library(datasets)
+library(httr)
+library(jsonlite)
 
+res = GET("https://stirrs.rll.lsa.umich.edu/api/items")
 # Use a fluid Bootstrap layout
 fluidPage(    
   
   # Give the page a title
-  titlePanel("Telephones by region"),
+  titlePanel(res),
   
   # Generate a row with a sidebar
   sidebarLayout(      
