@@ -1,6 +1,6 @@
 # Rely on the 'WorldPhones' dataset in the datasets
 # package (which generally comes preloaded).
-#library(datasets)
+library(datasets)
 library(httr)
 library(jsonlite)
 
