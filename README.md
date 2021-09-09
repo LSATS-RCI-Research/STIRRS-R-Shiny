@@ -12,9 +12,9 @@ Create a gitlab repo with the following folder structure:
 ```
 /
 |_
-|_ setup.sh
-|_ app-root/
-|_ <put the .html source code to host here>
+    |_ setup.sh
+    |_ app-root/
+        |_ <put the .html source code to host here>
 ```
 
 
