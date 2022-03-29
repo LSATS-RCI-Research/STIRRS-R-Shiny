@@ -10,6 +10,8 @@ echo "---installing R packages---"
 Rscript -e 'install.packages("markdown", repos="https://repo.miserver.it.umich.edu/cran/")'
 Rscript -e 'install.packages("httr", repos="https://repo.miserver.it.umich.edu/cran/")'
 Rscript -e 'install.packages("jsonlite", repos="https://repo.miserver.it.umich.edu/cran/")'
+Rscript -e 'install.packages("ggplot2", repos="https://repo.miserver.it.umich.edu/cran/")'
+Rscript -e 'install.packages("tidyverse", repos="https://repo.miserver.it.umich.edu/cran/")'
 echo "---installed R packages---"
 touch /tmp/src/temp-complete.txt
 touch /opt/app-root/src/dest-complete.txt
