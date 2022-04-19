@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-echo "---installing R packages--- (special)"
+echo "---installing R packages---"
 R -e 'install.packages("markdown", repos="https://repo.miserver.it.umich.edu/cran/")'
 R -e 'install.packages("httr", repos="https://repo.miserver.it.umich.edu/cran/")'
 R -e 'install.packages("jsonlite", repos="https://repo.miserver.it.umich.edu/cran/")'
