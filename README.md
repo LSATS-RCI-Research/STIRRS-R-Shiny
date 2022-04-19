@@ -2,41 +2,29 @@
 
 The GitLab repository for the R Shiny content for the STIRRS project. Note: this is different from the Omeka S repository. Kelly Kendro is the contact for this project. 
 
-
-
-
 Notes on using this with R-Shiny:
 
-Create a gitlab repo with the following folder structure:
+Create a GitLab repo with the following folder structure:
 
 ```
-/
-|_
-    |_ setup.sh
-    |_ app-root/
-        |_ <put the .html source code to host here>
+./shiny/
+    |_ app.R
 ```
-
-
-In the setup.sh script, install the needed R libraries.
 
 Additionally, you may also create the following folder structure to "override" the s2i folders I have provided, and edit the assemble script to put your code elsewhere, though the permissions of the user running the container will be limited.
 
 ```
-./.s2i
-|_ bin/
-|_ run
-|_ assemble
-|_ usage
-|_ save_artifacts
+./.s2i/
+    |_ bin/
+        |_ run
+        |_ assemble
+        |_ usage
+        |_ save_artifacts
 ```
 
+If this method is chosen, your `.s2i/bin/run` script MUST contain the following:
 
-If this method is chosen, your run script MUST contain the following:
-
-```
-*****************************************
-
+```bash
 USER_NAME="shiny"
 if ! whoami &> /dev/null; then
 if [ -w /etc/passwd ]; then
@@ -60,9 +48,8 @@ fi
 echo "---- Starting web server ----"
 
 exec /opt/shiny-server/bin/shiny-server
-
-*************************************************
 ```
 
+Otherwise, the server will fail to start, because the user that gets created will not be formatted properly, and lack permissions to make any changes or start the server.
 
-Otherwise, the server will fail to start, because the user that gets created will not be formatted properly, and lack permissions to make any changes or start the server. 
+Additionally, install any R packages in the `.s2i/bin/assemble` file.
