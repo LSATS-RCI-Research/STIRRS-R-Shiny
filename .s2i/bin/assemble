@@ -9,6 +9,6 @@ R -e 'install.packages("tidyverse", repos="https://repo.miserver.it.umich.edu/cr
 echo "---installed R packages---"
 
 mkdir -p /opt/app-root/shiny
-cp -Rf /tmp/src/app-root /opt/app-root/shiny
-chgrp -R 0 /opt/app-root/shiny && \
-chmod g+wrX /opt/app-root/shiny
+cp -Rf /tmp/src/shiny /opt/app-root/src/
+chgrp -R 0 /opt/app-root/src/shiny && \
+chmod g+wrX /opt/app-root/src/shiny
