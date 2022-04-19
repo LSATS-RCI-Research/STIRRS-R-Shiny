@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-echo "---installing R packages---"
+echo "---installing R packages--- (special)"
 R -e 'install.packages("markdown", repos="https://repo.miserver.it.umich.edu/cran/")'
 R -e 'install.packages("httr", repos="https://repo.miserver.it.umich.edu/cran/")'
 R -e 'install.packages("jsonlite", repos="https://repo.miserver.it.umich.edu/cran/")'
@@ -8,7 +8,7 @@ R -e 'install.packages("ggplot2", repos="https://repo.miserver.it.umich.edu/cran
 R -e 'install.packages("tidyverse", repos="https://repo.miserver.it.umich.edu/cran/")'
 echo "---installed R packages---"
 
-mkdir -p /opt/app-root/
-cp -Rf /tmp/src/app-root /opt/app-root
-chgrp -R 0 /opt/app-root && \
-chmod g+wrX /opt/app-root
+mkdir -p /opt/app-root/shiny
+cp -Rf /tmp/src/app-root /opt/app-root/shiny
+chgrp -R 0 /opt/app-root/shiny && \
+chmod g+wrX /opt/app-root/shiny
