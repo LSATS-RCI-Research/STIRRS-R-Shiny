@@ -53,3 +53,12 @@ exec /opt/shiny-server/bin/shiny-server
 Otherwise, the server will fail to start, because the user that gets created will not be formatted properly, and lack permissions to make any changes or start the server.
 
 Additionally, install any R packages in the `.s2i/bin/assemble` file.
+
+## OpenShift
+
+To deploy on OpenShift:
+
+1. Create an application via "Import from Git" and enter your repository's information and keys (via Secrets) as necessary.
+2. Select Builder Image as the Import Strategy and Shiny Debian as the Builder Image.
+3. Select to generate a DeploymentConfig resource type.
+4. Select Build configuration and enter "http://squidproxy-01.lsait.lsa.umich.edu:3128" as the value for an HTTP_PROXY and HTTPS_PROXY environment variables.

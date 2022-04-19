@@ -8,13 +8,12 @@ if ! whoami &> /dev/null; then
 fi
 # If user name is 'default' then make it shiny
 if [ "$(whoami)" = "default" ]; then
-        echo "----- User name defined as 'default', changing to shiny -----"
-        cp /etc/passwd /tmp/passwd
-        sed -i 's/default/shiny/' /tmp/passwd
-        cp /tmp/passwd /etc/passwd
-        rm /tmp/passwd
+  echo "----- User name defined as 'default', changing to shiny -----"
+  cp /etc/passwd /tmp/passwd
+  sed -i 's/default/shiny/' /tmp/passwd
+  cp /tmp/passwd /etc/passwd
+  rm /tmp/passwd
 fi
-R -e "0" --args --bootstrap-packrat
 
 echo "---- Starting web server ----"
 #Rscript packages.R
