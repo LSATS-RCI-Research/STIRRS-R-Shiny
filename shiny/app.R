@@ -4,6 +4,8 @@ library(httr)
 library(jsonlite)
 library(ggplot2)
 
+options(stringsAsFactors=FALSE)
+
 # assigns each code to its corresponding type and specific subtype, puts it in a dataframe
 itemsetCode <- c(330, 161, 397, 398, 407, 445, 411, 509, 526, 495, 444, 406, 443, 410, 404, 401, 523, 408, 447, 548, 582, 631, 542, 492, 550, 402, 409, 501, 402, 446, 405, 580, 516, 455, 403, 605, 606, 607, 608, 609, 610, 611, 612, 613, 614, 615, 616, 617, 618, 619, 620, 621, 622, 623, 624, 625, 604, 626)
 itemsetType <- c('Language of Judgment', 'Language of Judgment','Speed', 'Speed', 'Origin', 'Origin', 'Origin', 'Origin', 'Origin', 'Origin', 'Origin', 'Origin', 'Origin', 'Origin', 'Origin', 'Origin', 'Origin', 'Origin', 'Origin', 'Origin', 'Origin', 'Origin', 'Origin', 'Origin', 'Origin', 'Origin', 'Origin', 'Origin', 'Origin', 'Origin', 'Origin', 'Origin', 'Origin', 'Origin', 'Origin', 'Variety','Variety','Variety','Variety','Variety','Variety','Variety','Variety','Variety','Variety','Variety','Variety','Variety','Variety','Variety','Variety','Variety','Variety','Variety','Variety','Variety','Variety','Variety')
