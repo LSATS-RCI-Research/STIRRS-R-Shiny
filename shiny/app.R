@@ -90,7 +90,7 @@ server <- function(input, output) {
         theme(axis.text.x = element_text(angle = 90))
     }
     else {
-            # use datasets that are in the selected subset (e.g. Andalusia for Origin), but only the rows we care about (selected x variable)
+            # use datasets that are in the selected subset (e.g. Andalusia as Origin), but only the rows we care about (selected x variable)
       ggplot(dat[dat$id %in% dat$id[dat$itemsetSubtype == input$subtype],][dat[dat$id %in% dat$id[dat$itemsetSubtype == input$subtype],]$itemsetType == input$x,],
              aes_string(x = itemsetSubtype)) +
         geom_bar(stat = "count", fill = "#c83939") + 
