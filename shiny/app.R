@@ -71,11 +71,12 @@ server <- function(input, output) {
   output$x_axis <- renderUI ({
     selectInput("x", "X-Axis:", choices = setdiff(options, input$type))
   })
-
+  
   output$barPlot <- renderPlot({
-  # if Language or Speed, do side-by-side bar plot
+    # if Language or Speed, do side-by-side bar plot
     if (input$type == as.character("Language of Judgment") || input$type == as.character("Speed")) {
-    # if (input$subtype == as.character(options[1])) {
+                  # select data for LoJ/Speed style plot: no subtype, just plotting two types of studies (e.g. Speed + Origin => fast/slow for all origins)
+                  # merge 1) the data selected where [LoJ/Speed/Origin/Variety] = the x variable with 2) the data with the selected [LoJ/Speed/Origin/Variety]
       ggplot(merge(dat[dat$id %in% dat$id[dat$itemsetType == input$type],][dat[dat$id %in% dat$id[dat$itemsetType == input$type],]$itemsetType == input$x,],
                    dat[dat$id %in% dat$id[dat$itemsetType == input$type],][dat[dat$id %in% dat$id[dat$itemsetType == input$type],]$itemsetType == input$type,],
                    by="id"),
@@ -89,13 +90,14 @@ server <- function(input, output) {
         theme(axis.text.x = element_text(angle = 90))
     }
     else {
+            # use datasets that are in the selected subset (e.g. Andalusia for Origin), but only the rows we care about (selected x variable)
       ggplot(dat[dat$id %in% dat$id[dat$itemsetSubtype == input$subtype],][dat[dat$id %in% dat$id[dat$itemsetSubtype == input$subtype],]$itemsetType == input$x,],
              aes(x = itemsetSubtype)) +
-      geom_bar(stat = "count", fill = "#c83939") + 
-      xlab(input$x) +
-      ylab("Number of Entries") +
-      theme_bw(base_size = 16) + 
-      theme(axis.text.x = element_text(angle = 90))
+        geom_bar(stat = "count", fill = "#c83939") + 
+        xlab(input$x) +
+        ylab("Number of Entries") +
+        theme_bw(base_size = 16) + 
+        theme(axis.text.x = element_text(angle = 90))
     }
   })
 }
