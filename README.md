@@ -11,6 +11,8 @@ Create a GitLab repo with the following folder structure:
     |_ app.R
 ```
 
+In contrast to how you may typically write `app.R` files, do not include a call to `runApp(app)`.
+
 Additionally, you may also create the following folder structure to "override" the s2i folders I have provided, and edit the assemble script to put your code elsewhere, though the permissions of the user running the container will be limited.
 
 ```
