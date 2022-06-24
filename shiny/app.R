@@ -85,7 +85,7 @@ server <- function(input, output) {
         xlab(input$x) +
         ylab("Number of Entries") +
         labs(fill = input$type) +
-        scale_fill_manual(values = c(fill = "#c83939", coral3)) + #"darkcyan")) +
+        scale_fill_manual(values = c(fill = "#c83939", "coral3")) + #"darkcyan")) +
         theme_bw(base_size = 16) + 
         theme(axis.text.x = element_text(angle = 90))
     }
