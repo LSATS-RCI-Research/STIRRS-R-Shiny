@@ -80,7 +80,7 @@ server <- function(input, output) {
       ggplot(merge(dat[dat$id %in% dat$id[dat$itemsetType == input$type],][dat[dat$id %in% dat$id[dat$itemsetType == input$type],]$itemsetType == input$x,],
                    dat[dat$id %in% dat$id[dat$itemsetType == input$type],][dat[dat$id %in% dat$id[dat$itemsetType == input$type],]$itemsetType == input$type,],
                    by="id"),
-             aes_string(x = itemsetSubtype.x, fill = itemsetSubtype.y)) +
+             aes(x = itemsetSubtype.x, fill = itemsetSubtype.y)) +
         geom_bar(stat = "count", position = position_dodge())  +
         xlab(input$x) +
         ylab("Number of Entries") +
@@ -92,7 +92,7 @@ server <- function(input, output) {
     else {
             # use datasets that are in the selected subset (e.g. Andalusia as Origin), but only the rows we care about (selected x variable)
       ggplot(dat[dat$id %in% dat$id[dat$itemsetSubtype == input$subtype],][dat[dat$id %in% dat$id[dat$itemsetSubtype == input$subtype],]$itemsetType == input$x,],
-             aes_string(x = itemsetSubtype)) +
+             aes(x = itemsetSubtype)) +
         geom_bar(stat = "count", fill = "#c83939") + 
         xlab(input$x) +
         ylab("Number of Entries") +
