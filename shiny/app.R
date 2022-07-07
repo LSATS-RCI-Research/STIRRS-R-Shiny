@@ -82,6 +82,7 @@ server <- function(input, output) {
                    by="id"),
               aes(x = itemsetSubtype.x, fill = itemsetSubtype.y)) +
         geom_bar(stat = "count", position = position_dodge())  +
+        scale_y_continuous(breaks = function(x) unique(floor(pretty(seq(0, (max(x) + 1) * 1.1))))) +
         xlab(input$x) +
         ylab("Number of Entries") +
         labs(fill = input$type) +
@@ -94,6 +95,7 @@ server <- function(input, output) {
       ggplot(dat[dat$id %in% dat$id[dat$itemsetSubtype == input$subtype],][dat[dat$id %in% dat$id[dat$itemsetSubtype == input$subtype],]$itemsetType == input$x,],
              aes(x = itemsetSubtype)) +
         geom_bar(stat = "count", fill = "#c83939") + 
+        scale_y_continuous(breaks = function(x) unique(floor(pretty(seq(0, (max(x) + 1) * 1.1))))) +
         xlab(input$x) +
         ylab("Number of Entries") +
         theme_bw(base_size = 16) + 
