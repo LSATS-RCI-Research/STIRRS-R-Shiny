@@ -80,12 +80,12 @@ server <- function(input, output) {
       ggplot(merge(dat[dat$id %in% dat$id[dat$itemsetType == input$type],][dat[dat$id %in% dat$id[dat$itemsetType == input$type],]$itemsetType == input$x,],
                    dat[dat$id %in% dat$id[dat$itemsetType == input$type],][dat[dat$id %in% dat$id[dat$itemsetType == input$type],]$itemsetType == input$type,],
                    by="id"),
-             aes(x = itemsetSubtype.x))+#, fill = itemsetSubtype.y)) +
+             aes(x = itemsetSubtype.x, group = itemsetSubtype.y)) +
         geom_bar(stat = "count", position = position_dodge())  +
         xlab(input$x) +
         ylab("Number of Entries") +
-        labs(fill = input$type) +
-        scale_fill_manual(values = c(fill = "#c83939", "darkcyan")) +
+        # labs(fill = input$type) +
+        # scale_fill_manual(values = c(fill = "#c83939", "darkcyan")) +
         theme_bw(base_size = 16) + 
         theme(axis.text.x = element_text(angle = 90))
     }
