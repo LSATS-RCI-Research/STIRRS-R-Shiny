@@ -4,6 +4,8 @@ library(httr)
 library(jsonlite)
 library(ggplot2)
 
+#https://stackoverflow.com/questions/15622001/how-to-display-only-integer-values-on-an-axis-using-ggplot2 for y-axis scale
+
 options(stringsAsFactors=FALSE)
 
 # assigns each code to its corresponding type and specific subtype, puts it in a dataframe
