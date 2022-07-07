@@ -80,7 +80,11 @@ server <- function(input, output) {
       ggplot(merge(dat[dat$id %in% dat$id[dat$itemsetType == input$type],][dat[dat$id %in% dat$id[dat$itemsetType == input$type],]$itemsetType == input$x,],
                    dat[dat$id %in% dat$id[dat$itemsetType == input$type],][dat[dat$id %in% dat$id[dat$itemsetType == input$type],]$itemsetType == input$type,],
                    by="id"),
-             aes(x = itemsetSubtype.x, group = itemsetSubtype.y)) +
+              aes(x = merge(dat[dat$id %in% dat$id[dat$itemsetType == input$type],][dat[dat$id %in% dat$id[dat$itemsetType == input$type],]$itemsetType == input$x,],
+                           dat[dat$id %in% dat$id[dat$itemsetType == input$type],][dat[dat$id %in% dat$id[dat$itemsetType == input$type],]$itemsetType == input$type,],
+                           by="id")$itemsetSubtype.x, fill = merge(dat[dat$id %in% dat$id[dat$itemsetType == input$type],][dat[dat$id %in% dat$id[dat$itemsetType == input$type],]$itemsetType == input$x,],
+                                                    dat[dat$id %in% dat$id[dat$itemsetType == input$type],][dat[dat$id %in% dat$id[dat$itemsetType == input$type],]$itemsetType == input$type,],
+                                                    by="id")$itemsetSubtype.y)) +
         geom_bar(stat = "count", position = position_dodge())  +
         xlab(input$x) +
         ylab("Number of Entries") +
