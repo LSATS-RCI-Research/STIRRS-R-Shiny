@@ -83,6 +83,7 @@ server <- function(input, output) {
                    dat[dat$id %in% dat$id[dat$itemsetType == input$type],][dat[dat$id %in% dat$id[dat$itemsetType == input$type],]$itemsetType == input$type,],
                    by="id"),
               aes(x = itemsetSubtype.x, fill = itemsetSubtype.y)) +
+        geom_col(position=position_dodge2(preserve="single")) +
         geom_bar(stat = "count", position = position_dodge())  +
         scale_y_continuous(breaks = function(x) unique(floor(pretty(seq(0, (max(x) + 1) * 1.1))))) +
         xlab(input$x) +
@@ -96,6 +97,7 @@ server <- function(input, output) {
             # use datasets that are in the selected subset (e.g. Andalusia as Origin), but only the rows we care about (selected x variable)
       ggplot(dat[dat$id %in% dat$id[dat$itemsetSubtype == input$subtype],][dat[dat$id %in% dat$id[dat$itemsetSubtype == input$subtype],]$itemsetType == input$x,],
              aes(x = itemsetSubtype)) +
+        geom_col(position=position_dodge2(preserve="single")) +
         geom_bar(stat = "count", fill = "#c83939") + 
         scale_y_continuous(breaks = function(x) unique(floor(pretty(seq(0, (max(x) + 1) * 1.1))))) +
         xlab(input$x) +
