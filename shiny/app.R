@@ -83,7 +83,7 @@ server <- function(input, output) {
                    dat[dat$id %in% dat$id[dat$itemsetType == input$type],][dat[dat$id %in% dat$id[dat$itemsetType == input$type],]$itemsetType == input$type,],
                    by="id"),
               aes(x = itemsetSubtype.x, fill = itemsetSubtype.y)) +
-        geom_bar(stat = "count", position = position_dodge())  +
+        geom_bar(stat = "count", position = position_dodge2(preserve = "single"))  +
         scale_y_continuous(breaks = function(x) unique(floor(pretty(seq(0, (max(x) + 1) * 1.1))))) +
         xlab(input$x) +
         ylab("Number of Entries") +
