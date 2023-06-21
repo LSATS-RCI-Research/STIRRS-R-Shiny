@@ -59,7 +59,6 @@ Additionally, install any R packages in the `.s2i/bin/assemble` file.
 ## OpenShift
 
 To deploy on OpenShift:
-
 1. Create an application via "Import from Git" and enter your repository's information and keys (via Secrets) as necessary.
 2. Select Builder Image as the Import Strategy and Shiny Debian as the Builder Image.
 3. Select to generate a DeploymentConfig resource type.
